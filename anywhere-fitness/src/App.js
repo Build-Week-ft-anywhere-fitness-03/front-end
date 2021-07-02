@@ -74,96 +74,9 @@ const App = () => {
   const [isAuth, setIsAuth] = useState(initialAuthValue);
   const [isModal, setIsModal] = useState(false);
   const [modalInfo, setModalInfo] = useState(initialModalInfo)
-  const [typeModal, setTypeModal] = useState('');
   const [clientItems, setClientItems] = useState(initialClientItems);
   const [clientClassSearch, setClientClassSearch] = useState([]);
   const [clientPunchpassSearch, setClientPunchpassSearch] = useState([]);
-
-  const handleClientClassDelete = (id) => {
-      setTypeModal('success');
-      let newClasses = clientItems.classes.filter(el => el.id !== id)
-      setClientItems({
-        classes: newClasses,
-        punchpasses: [...clientItems.punchpasses]
-      })
-      // axiosWithAuth()
-      //   .delete(`/api/delete/${id}`)
-      //   .then(res => {
-      //       setClientItems({
-      //         classes: newClasses,
-      //         punchpasses: [...clientItems.punchpasses]
-      //       })
-      //       setTypeModal('success');
-      //   })
-      //   .catch(err => {
-      //       setTypeModal('error');
-      //   })
-  }
-
-  const handleClientClassReschedule = (id, newDate) => {
-      setTypeModal('success');
-      setClientItems({
-        classes: clientItems.classes.map(el => {
-          return el.id === id ? { ...el, date: newDate } : el
-        }),
-        punchpasses: [...clientItems.punchpasses]
-      });
-      // axiosWithAuth()
-      //   .put(`/api/delete/${id}`, newDate)
-      //   .then(res => {
-      //     setClientItems({
-      //       classes: clientItems.classes.map(el => {
-      //         return el.id === id ? { ...el, date: newDate } : el
-      //       }),
-      //       punchpasses: [...clientItems.punchpasses]
-      //     });
-      //     setTypeModal('success');
-      //   })
-      //   .catch(err => {
-      //     setTypeModal('error');
-      //   })
-  }
-
-  const handleClientPunchpassAdd = (data) => {
-    setTypeModal('success');
-    setClientItems({
-      classes: [...clientItems.classes],
-      punchpasses: [...clientItems.punchpasses, data]
-    });
-    // axiosWithAuth()
-    //   .post('/api/add-punchpass', data)
-    //   .then(res => {
-    //       //set punchpass state in my classes to reflect backend change
-    //         setClientItems({
-    //           classes: [...clientItems.classes],
-    //           punchpasses: [...clientItems.punchpasses, res.data]
-    //         });
-    //   })
-    //   .catch(err => {
-    //       console.log(err)
-    //   })
-  }
-
-  const handleClientPunchpassDelete = (id) => {
-    setTypeModal('success');
-    let newPunchpasses = clientItems.punchpasses.filter(el => el.id !== id);
-    setClientItems({
-      classes: [...clientItems.classes],
-      punchpasses: newPunchpasses
-    });
-    // axiosWithAuth()
-    //   .delete(`/api/delete/${id}`)
-    //   .then(res => {
-    //     setClientItems({
-    //       classes: [...clientItems.classes],
-    //       punchpasses: newPunchpasses
-    //     })
-    //     setTypeModal('success');
-    //   })
-    //   .catch(err => {
-    //       setTypeModal('error');
-    //   })
-}
 
   return (
       <div className="App"> 
@@ -174,12 +87,6 @@ const App = () => {
           <Modal
               setIsModal={setIsModal}
               modalInfo={modalInfo} 
-              // typeModal={typeModal} 
-              // handleClientClassAdd={handleClientClassAdd}
-              // handleClientClassDelete={handleClientClassDelete}
-              // handleClientClassReschedule={handleClientClassReschedule}
-              // handleClientPunchpassAdd={handleClientPunchpassAdd}
-              // handleClientPunchpassDelete={handleClientPunchpassDelete}
           /> 
           : null
         }

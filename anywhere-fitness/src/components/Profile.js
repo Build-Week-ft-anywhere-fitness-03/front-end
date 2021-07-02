@@ -19,7 +19,7 @@ import PunchpassList from './PunchpassList';
 const Profile = (props) => {
 
     const { setIsModal, setModalInfo, clientItems, setClientItems } = props;
-    
+
     const getData = () => {
         console.log("Inside Profile getData");
         setClientItems(clientItems)
@@ -31,8 +31,8 @@ const Profile = (props) => {
         //     .catch(err => {
         //         console.log(err);
         //     })
-    }
-
+    };
+    
     useEffect(() => {
         getData();
     }, [clientItems]);
