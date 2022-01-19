@@ -35,7 +35,7 @@ const Profile = (props) => {
 
     useEffect(() => {
         getData();
-    }, [clientItems]);
+    }, [clientItems]); // eslint-disable-line
 
     return ( 
         <div className='container'>

@@ -74,12 +74,12 @@ const App = () => {
   const [isAuth, setIsAuth] = useState(initialAuthValue);
   const [isModal, setIsModal] = useState(false);
   const [modalInfo, setModalInfo] = useState(initialModalInfo)
-  const [typeModal, setTypeModal] = useState('');
+  const [typeModal, setTypeModal] = useState(''); // eslint-disable-line
   const [clientItems, setClientItems] = useState(initialClientItems);
   const [clientClassSearch, setClientClassSearch] = useState([]);
   const [clientPunchpassSearch, setClientPunchpassSearch] = useState([]);
 
-  const handleClientClassDelete = (id) => {
+  const handleClientClassDelete = (id) => { // eslint-disable-line
       setTypeModal('success');
       let newClasses = clientItems.classes.filter(el => el.id !== id)
       setClientItems({
@@ -100,7 +100,7 @@ const App = () => {
       //   })
   }
 
-  const handleClientClassReschedule = (id, newDate) => {
+  const handleClientClassReschedule = (id, newDate) => { // eslint-disable-line
       setTypeModal('success');
       setClientItems({
         classes: clientItems.classes.map(el => {
@@ -124,7 +124,7 @@ const App = () => {
       //   })
   }
 
-  const handleClientPunchpassAdd = (data) => {
+  const handleClientPunchpassAdd = (data) => { // eslint-disable-line
     setTypeModal('success');
     setClientItems({
       classes: [...clientItems.classes],
@@ -144,7 +144,7 @@ const App = () => {
     //   })
   }
 
-  const handleClientPunchpassDelete = (id) => {
+  const handleClientPunchpassDelete = (id) => { // eslint-disable-line
     setTypeModal('success');
     let newPunchpasses = clientItems.punchpasses.filter(el => el.id !== id);
     setClientItems({

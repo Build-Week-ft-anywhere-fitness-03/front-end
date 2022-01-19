@@ -115,7 +115,7 @@ const RescheduleClass = (props) => {
 
     useEffect(() => {
         getData();
-    }, []);
+    }, []); // eslint-disable-line
 
     return (
         <div>
