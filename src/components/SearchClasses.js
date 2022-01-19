@@ -67,7 +67,7 @@ const SearchClasses = (props) => {
 
     useEffect(() => {
         getData();
-    }, []);
+    }, []); // eslint-disable-line
 
     return (
         <div className='container'>
